@@ -1,0 +1,12 @@
+{
+  "name": "off-screen-render",
+  "version": "1.0.0",
+  "description": "离屏渲染",
+  "main": "index.js",
+  "repository": "https://github.com/ahstufl/off-screen-render.git",
+  "author": "fengliang <1604057109@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
