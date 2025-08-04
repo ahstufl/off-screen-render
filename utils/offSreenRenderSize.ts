@@ -10,17 +10,17 @@ export interface FontStyle {
     underline?: boolean;
 }
 
-export const buildFontString = function buildFontString(ops: FontStyle) {
+export const buildFontString = function buildFontString(ops: FontStyle, unit='pt') {
     const {family, size, lineHeight, bold, italic} = ops;
-    return `${italic === true ? "italic " : ""}${bold === true ? "bold " : "normal "}${size}pt${lineHeight !== undefined ? `/${lineHeight}` : ""} ${family}`;
+    return `${italic === true ? "italic " : ""}${bold === true ? "bold " : "normal "}${size}${unit}${lineHeight !== undefined ? `/${lineHeight}` : ""} ${family}`;
 };
 
-export const getTextWidth = (text: string, font: FontStyle): number => {
+export const getTextWidth = (text: string, font: FontStyle, unit='pt'): number => {
     const tempCtx = document.createElement("canvas").getContext("2d");
     if (tempCtx === null) {
         throw new Error("Can't get context of canvas. Change a browser may fix this problem");
     }
-    tempCtx.font = buildFontString({...font, size: font.size * 10});
+    tempCtx.font = buildFontString({...font}, unit);
     const {width} = tempCtx.measureText(text);
     return width / 10;
 };

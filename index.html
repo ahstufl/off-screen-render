@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>离屏渲染 - 文本宽度计算</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        #editer {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+            min-height: 1.2em;
+        }
+        #editer:focus-within {
+            /* border-color: #007bff; */
+            background-color: #fff;
+        }
+        #text {
+            font-size: 16px;
+            font-weight: normal;
+            color: #000000;
+            font-family: Arial;
+        }
+        .result {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .width-value {
+            font-weight: bold;
+            color: #0066cc;
+            font-size: 1.1em;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <h1>离屏渲染 - 文本宽度计算器</h1>
+    <p>在下方输入框中输入或编辑文本，实时查看文本宽度：</p>
+    
+    <div id="editer">
+        <span id="text" contenteditable="true">Keep on going never give up.</span>
+    </div>
+    
+    <div class="result">
+        📏 内容宽度: <span id="width" class="width-value">0</span> px
+    </div>
+    <div style="color: red;">展示离屏渲染的canvas(实际不应该现在页面):</div>
+    
     <script type="module" src="./index.js"></script>
 </body>
 </html>

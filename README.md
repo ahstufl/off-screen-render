@@ -32,4 +32,5 @@ const fontStyle = {
     underline: false
 };
 ```
+![image](./example.jpg)
 
